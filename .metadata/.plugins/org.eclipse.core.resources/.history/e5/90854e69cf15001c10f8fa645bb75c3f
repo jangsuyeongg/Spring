@@ -1,0 +1,15 @@
+package com.bitcamp.myapp.register;
+
+public class ZipCodeVO {
+	private String zipcode;
+	private String sido;
+	private String sigungu;
+	private String doro;
+	
+	private int num1;
+	private int num2;
+	
+	private String build;
+	private String dong;
+	
+}

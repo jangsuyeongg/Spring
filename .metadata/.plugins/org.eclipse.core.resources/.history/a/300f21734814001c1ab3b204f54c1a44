@@ -1,0 +1,7 @@
+package com.bitcamp.myapp.register;
+
+//현재 클래스가 컨트롤러가 되기 위해서는 클래스명 이전에 @Controllor어노테이션을 기술한다.
+
+public class RegisterController {
+
+}

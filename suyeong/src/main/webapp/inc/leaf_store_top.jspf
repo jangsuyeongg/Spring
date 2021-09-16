@@ -1,0 +1,177 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="jquery.easing.1.3.js" /></script>
+<script src="jquery.bxslider.js"></script>
+<script src="jquery.innerfade.js"></script>
+<script src="jquery-ui.js"></script>
+<link rel="stylesheet" href="jquery.bxslider.css" type="text/css" />
+<link rel="stylesheet"href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+<style>
+	
+	.bx-wrapper {
+		border: none;
+		
+		}
+	#header {
+		height: 130px;
+		width:100vw;
+		background-color:#fff;
+		opacity:0.5;
+		position:fixed;
+		top:0;
+		z-index:3;
+
+	}
+	.fa-envira{
+		color:rgb(0, 163, 239);
+		font-size:4em;
+	}
+	
+	.topbar {
+		margin-left: 1600px;
+		position:relative;
+		top:-60px;
+	}
+	
+	.topbar>ul>li {
+		float: left;
+		font-size: 0.9em;
+		margin-top: 30px;
+		margin-left: 15px;
+	}
+	
+	.title {
+		float: left;
+		height: 50px;
+		line-height: 50px;
+		width: 20%;
+		text-align: center;
+		margin-top: 22px;
+		color:rgb(0, 163, 239);
+	}
+	
+	.title>ul {
+		position: relative;
+		z-index: 10;
+		background-color:white;
+		display: none;
+	}
+	
+	
+	#menu{
+		 position: relative;
+   		 top: -64px;
+	}
+
+	.menu_item:hover {
+		background-color:rgb(0, 163, 239);
+		font-weight: bold;
+		background-image: url('./img/coffee.png'); 
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	#star{
+		color:rgb(0, 163, 239);
+		
+	}
+	#header img{
+		margin-top:10px;
+		width:7%;
+	}
+
+</style>
+<script>
+
+	$(function() {
+		// 메뉴바 나오기
+		$(".title").on({
+			mouseenter : function() {
+				$(this).children('ul').css('display', 'block');
+			},
+			mouseleave : function() {
+				$(this).children('ul').css('display', 'none');
+			}
+		});
+		// 헤드에 마우스오버 -> 하얀색
+		$("#header").on({
+			mouseenter : function() {
+				$(this).css('opacity','1');
+			},
+			mouseleave : function() {
+				$(this).css('opacity','0.5');
+			}
+		});
+		// 메뉴에 마우스오버 -> 하얀색
+		$('.menu_item').on({
+			mouseenter: function() {
+				$(this).children().css('color', 'white');
+			},
+			mouseleave: function() {
+				$(this).children().css('color', 'black');
+			}
+		});
+		$('.title').on({
+			mouseenter: function() {
+				$(this).children().css('color', 'rgb(0, 163, 239)');
+			},
+			mouseleave: function() {
+				$(this).children().css('color', 'black');
+			}
+		});
+		
+	});
+	
+	
+</script>
+</head>
+<body>
+	<div id="header">
+		<div>
+			&nbsp;&nbsp;<img src="img/logo.png"/><!-- 로고 -->
+			<div class="topbar">
+				<ul>
+					<li><a href="#">Welcome 1호점 점주님 <span id="star">★</span></a></li>
+					<!-- <li><a href="#">Login</a></li> -->
+					<li><a href="#">Logout</a></li>
+				</ul>
+			</div>
+			
+		</div>
+		<div>
+		<ul id="menu">
+			<li class="title"><a href="#">공지사항</a>
+				<ul>
+					<li class="menu_item"><a href="#">공지사항목록</a></li>
+					<li class="menu_item"><a href="#">공지사항쓰기</a></li>
+
+				</ul>
+			</li>
+			<li class="title"><a href="#">매출분석</a>
+				<ul>
+					<li class="menu_item"><a href="#">매출분석</a></li>
+				</ul>
+			</li>
+			<li class="title"><a href="#">직원관리</a>
+				<ul>
+					<li class="menu_item"><a href="#">직원목록</a></li>
+					<li class="menu_item"><a href="#">직원추가</a></li>
+				</ul>
+			</li>
+			<li class="title"><a href="#">재고관리</a>
+				<ul>
+					<li class="menu_item"><a href="#">발주하기</a></li>
+					<li class="menu_item"><a href="#">재고확인</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	</div><!-- header -->
+
+
