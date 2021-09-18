@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-    <typeInfo handle="=WebSpring01/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.bitcamp.myapp{DBConnection.java[DBConnection" modifiers="1" timestamp="1631586911519"/>
     <typeInfo handle="=WebSpring01/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.bitcamp.myapp.register{RegisterDAOImpl.java[RegisterDAOImpl" modifiers="513" timestamp="1631588346905"/>
+    <typeInfo handle="=WebSpring01/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.bitcamp.myapp{DBConnection.java[DBConnection" modifiers="1" timestamp="1631586911519"/>
+    <typeInfo handle="=WebSpring01/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.bitcamp.myapp.board{BoardDAOImpl.java[BoardDAOImpl" modifiers="513" timestamp="1631851562792"/>
 </typeInfoHistroy>

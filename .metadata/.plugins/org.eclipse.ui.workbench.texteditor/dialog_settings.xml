@@ -7,12 +7,13 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="paginh"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1255"/>
+		<item key="DIALOG_X_ORIGIN" value="1004"/>
 		<item key="DIALOG_Y_ORIGIN" value="443"/>
 		<item key="DIALOG_WIDTH" value="393"/>
 		<item key="DIALOG_HEIGHT" value="523"/>

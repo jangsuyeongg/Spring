@@ -122,10 +122,12 @@ public class RegisterVO {
 
 	public void setEmail(String email) {
 		this.email = email;
-	
-		String mail[] = email.split("@");
-		emailid = mail[0];
-		domain = mail[1];
+		
+		if(email!=null) {
+			String mail[] = email.split("@");
+			emailid = mail[0];
+			domain = mail[1];
+		}
 	}
 
 	public String getZipcode() {
@@ -174,8 +176,9 @@ public class RegisterVO {
 		this.hobbyStr = hobbyStr;
 		
 		//문자열을 배열로 저장
-		hobby = hobbyStr.split("/");
-		
+		if(hobbyStr!=null) {
+			hobby = hobbyStr.split("/");
+		}
 	}
 
 		
