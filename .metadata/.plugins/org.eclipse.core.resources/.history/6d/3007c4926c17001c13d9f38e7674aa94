@@ -1,6 +1,0 @@
-package com.bitcamp.myapp.board;
-
-public interface BoardDAOImpl {
-	//총레코드수
-	public void totalRecordCount(PagingVO pVo);
-}

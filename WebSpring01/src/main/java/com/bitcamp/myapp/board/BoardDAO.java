@@ -13,6 +13,11 @@ public class BoardDAO extends DBConnection implements BoardDAOImpl {
       try {
          dbConn();
          sql="select count(no) from board";
+         //검색어가 있을때
+         if(pVo.getSearchWord()!=null && !pVo.getSearchWord().equals("")) {
+        	 sql += " where "+pVo.getSearchKey()+" like '%"+pVo.getSearchWord()+"%'";
+        	 
+         }
          pstmt = con.prepareStatement(sql);
          rs = pstmt.executeQuery();
          if(rs.next()) {
@@ -34,14 +39,29 @@ public class BoardDAO extends DBConnection implements BoardDAOImpl {
          dbConn();
          sql="select * from "
                +"(select * from "
-               +"(select no, subject, userid, hit, to_char(writedate,'MM-DD-HH:Mi') writedate from board order by no desc) "
+               +"(select no, subject, userid, hit, to_char(writedate,'MM-DD-HH:Mi') writedate from board ";
+              
+               //검색어가 있으면
+               if(pVo.getSearchWord()!=null && !pVo.getSearchWord().equals("")){
+            	   sql += " where "+pVo.getSearchKey() + " like '%"+pVo.getSearchWord()+"%'";
+               }
+         
+         		sql += "order by no desc) "
                +"where rownum<=? order by no asc) "
                +"where rownum<=? order by no desc";
          pstmt = con.prepareStatement(sql);
-         //한페이지당레코드수*현제패이지
+         //한페이지당레코드수*현재페이지
          pstmt.setInt(1, pVo.getOnePageRecord()*pVo.getNowPage());
          //한페이당레코드수
-         pstmt.setInt(2,pVo.getOnePageRecord());
+         //남은 레코드수
+         int lastPageRecord = pVo.getTotalRecord() % pVo.getOnePageRecord();//3
+         
+         if(pVo.getTotalPage()== pVo.getNowPage() && lastPageRecord!=0) {//마지막페이지일때 , 마지막페이지가 0이아닐때 전체/5 해서 3이 나오게 하라??
+        	 pstmt.setInt(2,lastPageRecord);
+         }else {
+        	 pstmt.setInt(2,pVo.getOnePageRecord());
+         }
+       
          
          rs=pstmt.executeQuery();
          while(rs.next()) {
@@ -53,7 +73,6 @@ public class BoardDAO extends DBConnection implements BoardDAOImpl {
             vo.setWritedate(rs.getString(5));
             list.add(vo);
             
-            
          }
          
       }catch(Exception e) {
@@ -61,9 +80,135 @@ public class BoardDAO extends DBConnection implements BoardDAOImpl {
       }finally {
          dbClose();
       }
-      
-      
       return list;
    }
-
+   
+   @Override
+	public void boardSelect(BoardVO vo) {
+		try {
+			dbConn();
+			sql = "select no, userid, subject, content, hit, writedate from board where no=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, vo.getNo());
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				vo.setNo(rs.getInt(1));
+				vo.setUserid(rs.getString(2));
+				vo.setSubject(rs.getString(3));
+				vo.setContent(rs.getString(4));
+				vo.setHit(rs.getShort(5));
+				vo.setWritedate(rs.getString(6));
+			}
+					
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		
+	}
+ //댓글쓰기
+   @Override
+     public int replyInsert(ReplyBoardVO replyVo) {
+        int cnt=0;
+        try {
+           dbConn();
+           sql = "insert into replyboard(num, userid, coment, no) "
+                 + " values(replysq.nextval, ?,?,?)";
+           pstmt = con.prepareStatement(sql);
+           pstmt.setString(1, replyVo.getUserid());
+           pstmt.setString(2, replyVo.getComent());
+           pstmt.setInt(3, replyVo.getNo());
+           
+           cnt = pstmt.executeUpdate();
+           
+        }catch(Exception e) {
+           e.printStackTrace();
+        }finally {
+           dbClose();
+        }
+        return cnt;
+     }
+   @Override
+	public List<ReplyBoardVO> replyListSelect(int no) {
+		List<ReplyBoardVO> lst = new ArrayList<ReplyBoardVO>();
+		try {
+			dbConn();
+			sql= "select num, userid, coment, writedate from replyboard "
+					+ " where no=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ReplyBoardVO vo = new ReplyBoardVO();
+				vo.setNum(rs.getInt(1));
+				vo.setUserid(rs.getString(2));
+				vo.setComent(rs.getString(3));
+				vo.setWritedate(rs.getString(4));
+				lst.add(vo);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		return lst;
+	}
+   @Override
+ //댓글수정 
+   public int replyUpdate(ReplyBoardVO replyVo) {
+      int cnt=0;
+      try {
+          dbConn();
+          sql ="update replyboard set coment=? where num=? and userid=?";
+          pstmt =con.prepareStatement(sql);
+          pstmt.setString(1,replyVo.getComent());
+          pstmt.setInt(2,replyVo.getNum());
+          pstmt.setString(3,replyVo.getUserid());
+          cnt = pstmt.executeUpdate();
+      }catch(Exception e) {
+          e.printStackTrace();
+      }finally {
+         dbClose();
+      }
+      return cnt;
+   }
+   @Override
+	public int replyDelete(int num, String userid) {
+	   int cnt=0;
+	   try {
+			dbConn();
+			sql= "delete from replyboard where num=? and userid=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.setString(2, userid);
+			
+			cnt = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		return cnt;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

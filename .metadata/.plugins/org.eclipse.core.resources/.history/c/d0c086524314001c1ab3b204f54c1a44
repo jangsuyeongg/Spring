@@ -1,3 +1,0 @@
-@charset "UTF-8";
-body{border:1px solid gray;}
-p{background-color:pink;}

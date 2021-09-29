@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
+<aop-project name="WebSpringAjax"/>
+<aop-project name="SEOUL"/>
+<aop-project name="WebSpring02_jdbcTemplate"/>
 <aop-project name="suyeong"/>
 <aop-project name="WebSpring01"/>
 </aop-reference-model>

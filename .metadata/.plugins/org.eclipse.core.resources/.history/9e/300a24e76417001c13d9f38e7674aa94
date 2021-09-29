@@ -1,7 +1,0 @@
-package com.bitcamp.myapp.board;
-
-import com.bitcamp.myapp.DBConnection;
-
-public class BoardDAO extends DBConnection implements BoardDAOImpl {
-
-}
