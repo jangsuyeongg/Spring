@@ -1,0 +1,205 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="api/jquery-3.4.1.js"></script>
+<script src="api/jquery.bxslider.js"></script>
+<script src="api/jquery.innerfade.js"></script>
+<link rel="stylesheet" href="api/jquery.bxslider.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<link rel="stylesheet"href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+<style>
+	a:link, a:hover, a:visited {
+		text-decoration: none;
+		color: black;
+	}
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	
+	li, ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+	.bx-wrapper {
+		border: none;
+		
+		}
+	#header {
+		height: 130px;
+		width:100vw;
+		background-color:#fff;
+		opacity:0.5;
+		position:fixed;
+		top:0;
+		z-index:3;
+	}
+	.fa-envira{
+		color:rgb(0, 163, 239);
+		font-size:4em;
+	}
+	
+	.topbar {
+		margin-left: 1800px;
+		position:relative;
+		top:-60px;
+	}
+	
+	.topbar>ul>li {
+		float: left;
+		font-size: 0.9em;
+		margin-top: 30px;
+		margin-left: 15px;
+	}
+	
+	.title {
+		float: left;
+		height: 50px;
+		line-height: 50px;
+		width: 12.5%;
+		text-align: center;
+		margin-top: 22px;
+		color:rgb(0, 163, 239);
+	}
+	
+	.title>ul {
+		position: relative;
+		z-index: 10;
+		background-color:white;
+		display: none;
+		width:100%;
+		height:200px;
+	}
+	#menu{
+		 position: relative;
+   		 top: -69px;
+   		 width:100vw;
+	}
+	.menu_item:hover {
+		font-weight: bold;
+		background-image: url('./img/coffee.png'); 
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	
+	.hide > a {
+		color: white;
+	}
+
+	#star{
+		color:rgb(0, 163, 239);
+		
+	}
+	#header img{
+		margin-top:10px;
+		width:7%;
+	}
+	#menu{
+		width:100%;
+		height:150px;
+	}
+	.title:nth-of-type(1){
+		margin-left:550px;
+	}
+</style>
+<script>
+
+	$(function() {
+		// 메뉴바 나오기
+		$(".title").on({
+			mouseenter : function() {
+				$(".title>ul").css('display', 'block');
+			},
+			mouseleave : function() {
+				$(".title>ul").css('display', 'none');
+			}
+		});
+	
+	
+		// 헤드에 마우스오버 -> 하얀색
+		$("#header").on({
+			mouseenter : function() {
+				$(this).css('opacity','1');
+			},
+			mouseleave : function() {
+				$(this).css('opacity','0.5');
+			}
+		});
+		// 메뉴에 마우스오버 -> 하얀색
+		$('.menu_item').on({
+			mouseenter: function() {
+				$(this).children().css('color', 'rgb(0, 163, 239);');
+			},
+			mouseleave: function() {
+				$(this).children().css('color', 'black');
+			}
+		});
+		$('.title').on({
+			mouseenter: function() {
+				$(this).children("ul").css('color', 'rgb(0, 163, 239)').css('border-bottom','3px solid rgb(0, 163, 239)');
+				$(".hide").children().css('color', 'white').css('border-bottom','none');
+			},
+			mouseleave: function() {
+				$(this).children().css('color', 'black').css('border-bottom','none');
+				$(".hide").children().css('color', 'white').css('border-bottom','none');
+			}
+		});
+		
+	});
+	
+	
+</script>
+</head>
+<body>
+<div id="header">
+		<div>
+			&nbsp;&nbsp;<img src="img/logo.png"/><!-- 로고 -->
+			<div class="topbar">
+				<ul>
+					<li><a href="#">Welcome 1호점 점주님 <span id="star">★</span></a></li>
+					<!-- <li><a href="#">Login</a></li> -->
+					<li><a href="#">Logout</a></li>
+				</ul>
+			</div>
+			
+		</div>
+		<div id="menu">
+		<ul>
+			<li class="title"><a href="#">공지사항</a>
+				<ul>
+					<li class="menu_item"><a href="/leaf/menu">메뉴커피</a></li>
+					<li class="menu_item"><a href="#">공지사항쓰기</a></li>
+				</ul>
+			</li>
+			<li class="title"><a href="#">매출분석</a>
+				<ul>
+					<li class="menu_item"><a href="#">매출분석</a></li>
+				</ul>
+			</li>
+			<li class="title"><a href="#">직원관리</a>
+				<ul>
+					<li class="menu_item"><a href="#">직원목록</a></li>
+					<li class="menu_item"><a href="#">직원추가</a></li>
+				</ul>
+			</li>
+			<li class="title"><a href="#">재고관리</a>
+				<ul>
+					<li class="menu_item"><a href="#">발주하기</a></li>
+					<li class="menu_item"><a href="#">재고확인</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+	</div>
+	</div><!-- header -->
+
+
+

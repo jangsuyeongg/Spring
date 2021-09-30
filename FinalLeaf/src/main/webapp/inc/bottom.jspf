@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<style>
+	footer{
+    display: flex;
+    flex: 1 1 0;
+    background-color: #2d2d2d;
+    color: white;
+    align-items: center;
+    padding-left: 10px;
+    height:300px;
+}
+
+</style>
+ <footer>
+            <div>
+                left(주) 대표이사 : 홍길동 주소:서울특별시 마포구 신수동<br/><br/><br/>
+                사업자등록번호 : 111-11-11111 대표번호 0000-0000   © 2019 m’s seed Co., Ltd. All rights reserved.
+            </div>
+         
+        </footer>
+
+</body>
+</html>
