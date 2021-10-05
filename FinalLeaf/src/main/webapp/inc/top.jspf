@@ -34,6 +34,9 @@
 		
 		}
 	#header {
+		display:flex;
+		justify-content: space-around;
+    flex-direction: column;
 		height: 130px;
 		width:100vw;
 		background-color:#fff;
@@ -45,14 +48,18 @@
 	.fa-envira{
 		color:rgb(0, 163, 239);
 		font-size:4em;
+		margin:10px;
 	}
 	
 	.topbar {
-		margin-left: 1800px;
+		
 		position:relative;
-		top:-60px;
+		
 	}
-	
+	#logo{
+		display:flex;
+		justify-content: space-between;
+	}
 	.topbar>ul>li {
 		float: left;
 		font-size: 0.9em;
@@ -61,27 +68,26 @@
 	}
 	
 	.title {
-		float: left;
+		diaplay:flex;
 		height: 50px;
 		line-height: 50px;
 		width: 12.5%;
 		text-align: center;
-		margin-top: 22px;
 		color:rgb(0, 163, 239);
 	}
-	
-	.title>ul {
-		position: relative;
-		z-index: 10;
+	.title>ul{
+		display:none;
+		height:150px;
 		background-color:white;
-		display: none;
-		width:100%;
-		height:200px;
 	}
-	#menu{
-		 position: relative;
-   		 top: -69px;
-   		 width:100vw;
+
+	#menu>ul{
+		position: relative;
+		background-color:white;
+		display:flex;
+   		justify-content: center;
+		
+		
 	}
 	.menu_item:hover {
 		font-weight: bold;
@@ -104,10 +110,9 @@
 	}
 	#menu{
 		width:100%;
-		height:150px;
-	}
-	.title:nth-of-type(1){
-		margin-left:550px;
+		height:50px;
+		position: relative;
+		
 	}
 </style>
 <script>
@@ -117,6 +122,7 @@
 		$(".title").on({
 			mouseenter : function() {
 				$(".title>ul").css('display', 'block');
+				$(this).parent().css('display', 'flex');
 			},
 			mouseleave : function() {
 				$(".title>ul").css('display', 'none');
@@ -145,11 +151,11 @@
 		$('.title').on({
 			mouseenter: function() {
 				$(this).children("ul").css('color', 'rgb(0, 163, 239)').css('border-bottom','3px solid rgb(0, 163, 239)');
-				$(".hide").children().css('color', 'white').css('border-bottom','none');
+				$(this).css('color', 'rgb(0, 163, 239)').css('border-bottom','3px solid rgb(0, 163, 239)');
 			},
 			mouseleave: function() {
 				$(this).children().css('color', 'black').css('border-bottom','none');
-				$(".hide").children().css('color', 'white').css('border-bottom','none');
+				$(this).css('color', 'rgb(0, 163, 239)').css('border-bottom','none');
 			}
 		});
 		
@@ -159,23 +165,31 @@
 </script>
 </head>
 <body>
+<a href="/leaf/menu_Coffee">메뉴(coffee)</a> 
+<a href="/leaf/menu_Food">메뉴(food)</a> 
+<a href="/leaf/menu_Beverage">메뉴(beverage))</a> 
+<a href="/leaf/menu_Register">메뉴등록</a> 
+<a href="/leaf/purchase">발주하기(수정)</a> 
+<a href="/leaf/purchase_Confirm">발주확인(본사)</a>
+<!-- 
 <div id="header">
-		<div>
-			&nbsp;&nbsp;<img src="img/logo.png"/><!-- 로고 -->
+		<div id="logo">
+			<i class="fab fa-envira">leaf</i>
 			<div class="topbar">
 				<ul>
-					<li><a href="#">Welcome 1호점 점주님 <span id="star">★</span></a></li>
-					<!-- <li><a href="#">Login</a></li> -->
+					<li><a href="#">Welcome<span id="star">★</span></a></li>
+
 					<li><a href="#">Logout</a></li>
 				</ul>
 			</div>
 			
 		</div>
 		<div id="menu">
+		<a href="/leaf/">홈</a> 
 		<ul>
 			<li class="title"><a href="#">공지사항</a>
 				<ul>
-					<li class="menu_item"><a href="/leaf/menu">메뉴커피</a></li>
+					<li class="menu_item"><a href="#">공지사항목록</a></li>
 					<li class="menu_item"><a href="#">공지사항쓰기</a></li>
 				</ul>
 			</li>
@@ -199,7 +213,6 @@
 			
 		</ul>
 	</div>
-	</div><!-- header -->
+	</div>
 
-
-
+ -->

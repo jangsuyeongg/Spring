@@ -16,8 +16,6 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		
-    	
 	}
 	.menu_title_container {
 		display: flex;
@@ -119,7 +117,7 @@
    		line-height:50px;
 	    text-align: center;
 	}
-  /*head 이미지*/
+	/*head 이미지*/
    header{
    		height:330px;
    		position:relative;
@@ -143,7 +141,7 @@
    		padding:15px 40px;
    		}
 	#head_img{
-		background-image:url(https://www.baristapaulbassett.co.kr/images/menu/subVisual_coffee.jpg);
+		background-image:url(https://www.baristapaulbassett.co.kr/images/menu/subVisual_food.jpg);
 		z-index:-1;
 		width:100%;
 		height:330px;
@@ -152,77 +150,56 @@
 <script>
 $(function(){
 	$("#All").click(function(){
-		$(".latte").css('display','block');
-		$(".espresso").css('display','block');
-		$(".coffee").css('display','block');
+		$(".bakery").css('display','block');
+		$(".cake").css('display','block');
 	});
 	
-	$("#Coffee").click(function(){
-		$(".coffee").css('display','block');
-		$(".latte").css('display','none');
-		$(".espresso").css('display','none');
-		
+	$("#Bakery").click(function(){
+		$(".bakery").css('display','block');
+		$(".cake").css('display','none');
 	});
-	$("#Latte").click(function(){
-		$(".latte").css('display','block');
-		$(".coffee").css('display','none');
-		$(".espresso").css('display','none');
+	$("#Cake").click(function(){
+		$(".cake").css('display','block');
+		$(".bakery").css('display','none');
 	});
-	$("#Espresso").click(function(){
-		$(".espresso").css('display','block');
-		$(".coffee").css('display','none');
-		$(".latte").css('display','none');
-	});
-	
 	$("#headerText").animate({
 	       top: "-160px", opacity:1
 	       }, 1200,);
 	
+	
 });
-</script>>
-	<header>
-		<div id="head_img"></div>
-		   <div id="headerText">COFFEE</div>
-	</header>
-	<div class="main">		
-		<div class="menu_bar">
-			<ul class="menu_title_container">
-				<li id="All">All</li>
-				<li id="Coffee">Coffee</li>
-				<li id="Latte">Latte</li>
-				<li id="Espresso">Espresso</li>
-			</ul>
-		</div>
-		<div>
-			<ul class="menuList">
-				<li class="coffee"><div class="imgwrap"><a href="/leaf/menu_detail"><img src="img/americano.png" id="img"/></a></div>
-					<div class="imgtext">아이스아메리카노<br/><span class="imgtext2">Iced Americano</span></div>
-					<div class="new">new</div>
-				</li>
-				<li class="latte"><div class="imgwrap"><img src="img/latte.png" id="img"/></div>
-					<div class="imgtext">마키아토<br/><span class="imgtext2">Machiato</span></div>
-				</li>
-				<li class="espresso"><div class="imgwrap"><img src="img/espresso.png" id="img"/></div>
-					<div class="imgtext">에스프레소<br/><span class="imgtext2">Espresso</span></div>
-					<div class="best">best</div>
-				</li>
-				<li class="latte"><div class="imgwrap"><img src="img/icecreamlatte.png" id="img"/></div>
-					<div class="imgtext">아이스크림라떼<br/><span class="imgtext2">Icecream Latte</span></div>
-					<div class="best">best</div>
-				</li>
-				<li class="latte"><div class="imgwrap"><img src="img/malcha.png" id="img"/></div>
-					<div class="imgtext">아이스 제주 말차 카페 라떼<br/><span class="imgtext2">Iced Jeju Malcha Cafe Latte</span></div>
-				</li>
-				<li class="latte"><div class="imgwrap"><img src="img/latte2.png" id="img"/></div>
-					<div class="imgtext">아이스 카페라떼<br/><span class="imgtext2">Iced Cafe Latte</span></div>
-					<div class="best">best</div>
-				</li>
-				<li class="latte"><div class="imgwrap"><img src="img/caramel.png" id="img"/></div>
-					<div class="imgtext">아이스 카라멜마끼야또<br/><span class="imgtext2">Iced Caramel Macchiato</span></div>
-				</li>
-				<li class="latte"><div class="imgwrap"><img src="img/Einspanner.png" id="img"/></div>
-					<div class="imgtext">제주바다 아인슈페너<br/><span class="imgtext2">Jeju Ocean Einspanner</span></div>
-				</li>
-			</ul>
-		</div>
-	</div>	
+</script>
+<header>
+<div id="head_img"></div>
+   <div id="headerText">FOOD</div>
+</header>
+<div class="main">
+	<div class="menu_bar">
+		<ul class="menu_title_container">
+			<li id="All">All</li>
+			<li id="Bakery">Bakery</li>
+			<li id="Cake">Cake</li>
+		</ul>
+	</div>
+	<div>
+		<ul class="menuList">
+			<li class="bakery"><div class="imgwrap"><a href="/suyeong/leaf/leaf_menu_detail.jsp"><img src="img/Croiffle.png" id="img"/></a></div>
+				<div class="imgtext">크로플<br/><span class="imgtext2">Croiffle</span></div>
+			</li>
+			<li class="bakery"><div class="imgwrap"><img src="img/MilkCreamBread.png" id="img"/></div>
+				<div class="imgtext">우유크림빵<br/><span class="imgtext2">Milk Cream Bread</span></div>
+			</li>
+			<li class="bakery"><div class="imgwrap"><img src="img/Madeleine.png" id="img"/></div>
+				<div class="imgtext">마들렌<br/><span class="imgtext2">Madeleine</span></div>
+				<div class="best">best</div>
+			</li>
+			<li class="bakery"><div class="imgwrap"><img src="img/Cannele.png" id="img"/></div>
+				<div class="imgtext">까눌레<br/><span class="imgtext2">Cannele</span></div>
+			</li>
+			<li class="cake"><div class="imgwrap"><img src="img/DarkHazelnutCake.png" id="img"/></div>
+				<div class="imgtext">다크 헤이즐넛 케이크<br/><span class="imgtext2">Dark Hazelnut Cake</span></div>
+				<div class="new">new</div>
+			</li>	
+		</ul>
+	</div>
+</div>	
