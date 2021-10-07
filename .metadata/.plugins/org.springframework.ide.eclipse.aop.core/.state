@@ -7,5 +7,8 @@
 <aop-project name="WebSpring04_mybatis"/>
 <aop-project name="suyeong"/>
 <aop-project name="FinalLeaf"/>
+<aop-project name="WebSpringOracleMybatisNoXml"/>
+<aop-project name="WebSpringOracleMybatisXml"/>
+<aop-project name="leaf"/>
 <aop-project name="WebSpring01"/>
 </aop-reference-model>
