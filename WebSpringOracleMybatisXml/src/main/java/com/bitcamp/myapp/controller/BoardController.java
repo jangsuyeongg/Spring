@@ -15,6 +15,7 @@ import com.bitcamp.myapp.vo.BoardVO;
 public class BoardController {
 	@Inject
 	BoardService boardService;
+	
 	@RequestMapping("/board/list")
 	public ModelAndView boardList() {
 		ModelAndView mav = new ModelAndView();

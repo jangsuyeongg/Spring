@@ -204,7 +204,7 @@ $(function(){
 				<c:forEach var="MenuVO" items="${MenuList}"> 
 				<li class="coffee"><div class="imgwrap"><a href="/myapp/menu_detail"><img src="img/americano.png" id="img"/></a></div>
 					<div class="imgtext">${MenuVO.p_name}<br/><span class="imgtext2">${MenuVO.p_ename}</span></div>
-					<div class="new">new</div>
+					<div class="new"></div>
 				</li>
 				
 				

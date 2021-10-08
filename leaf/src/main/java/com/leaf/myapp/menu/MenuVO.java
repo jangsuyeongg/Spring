@@ -10,6 +10,8 @@ public class MenuVO {
 	private int p_price;
 	private String p_desc;
 	private String p_info;
+	private String new_best;
+	private String p_img;
 	
 	public int getP_num() {
 		return p_num;
@@ -66,5 +68,17 @@ public class MenuVO {
 	}
 	public void setP_info(String p_info) {
 		this.p_info = p_info;
+	}
+	public String getNew_best() {
+		return new_best;
+	}
+	public void setNew_best(String new_best) {
+		this.new_best = new_best;
+	}
+	public String getP_img() {
+		return p_img;
+	}
+	public void setP_img(String p_img) {
+		this.p_img = p_img;
 	}
 }

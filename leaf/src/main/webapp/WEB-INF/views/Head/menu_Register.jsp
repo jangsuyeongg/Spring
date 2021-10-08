@@ -127,22 +127,22 @@
 			<div class="inputbox">
 				<div id="reg">등록하기</div><br/><br/>
 				<div class="row">분  류</div>
-					<select class="form">
+					<select class="form" name="l_ctg">
 					    <option value="">대분류</option>
-					    <option value="l_name">food</option>
-					    <option>product</option>
+					    <option value="10">food</option>
+					    <option value="20"> product</option>
 				    </select>
-				    <select class="form">
+				    <select class="form"  name="m_ctg">
 					    <option value="">중분류</option>
-					    <option value="m_name">coffee</option>
-					    <option>beverage</option>
-					    <option>food</option>
+					    <option value="11">coffee</option>
+					    <option value="12">beverage</option>
+					    <option value="13">food</option>
 				    </select>
-				    <select class="form">
+				    <select class="form"  name="s_ctg">
 					    <option value="">소분류</option>
-					    <option value="s_name">coffee</option>
-					    <option>espresso</option>
-					    <option>latte</option>
+					    <option value="110">coffee</option>
+					    <option value="111">espresso</option>
+					    <option value="112">latte</option>
 				    </select><br/><br/>
 				
 				<div class="row">제품명</div>
@@ -152,7 +152,7 @@
 				<div class="row">가격</div>	
 					<input type="text" class="form"/><br/><br/>
 				<div class="row">new/best</div>	
-					<select class="form">
+					<select class="form" name="new_best">
 					    <option value="">없음</option>
 					    <option value="">new</option>
 					    <option>best</option>
@@ -173,7 +173,7 @@
 				</div><br/>
 				<div id="submit"><input type="submit" value="등록하기"/></div>
 				<div id="fileimg"><img src="img/menu_image.png"/>
-					 <div id="file"><label for="filename" id="filebutton">파일선택</label><div id="uploaded"></div><input type="file" name="filename" id="filename" /></div>
+					 <div id="file"><label for="filename" id="filebutton">파일선택</label><div id="uploaded"></div><input type="file" name="p_img" id="filename" /></div>
 				</div>
 			</div>	
 		</div>

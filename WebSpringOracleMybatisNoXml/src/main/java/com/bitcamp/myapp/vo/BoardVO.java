@@ -1,5 +1,7 @@
 package com.bitcamp.myapp.vo;
 
+import java.util.List;
+
 public class BoardVO {
 	private int no;
 	private String userid;
@@ -8,6 +10,10 @@ public class BoardVO {
 	private int hit;
 	private String writedate;
 	private String ip;
+	
+	//여러개의 레코드번호 담을 변수
+	private int[] noDelArray;
+	private List<Integer> noDelList;
 	
 	public int getNo() {
 		return no;
@@ -50,6 +56,18 @@ public class BoardVO {
 	}
 	public void setIp(String ip) {
 		this.ip = ip;
+	}
+	public int[] getNoDelArray() {
+		return noDelArray;
+	}
+	public void setNoDelArray(int[] noDelArray) {
+		this.noDelArray = noDelArray;
+	}
+	public List<Integer> getNoDelList() {
+		return noDelList;
+	}
+	public void setNoDelList(List<Integer> noDelList) {
+		this.noDelList = noDelList;
 	}
 	
 }
