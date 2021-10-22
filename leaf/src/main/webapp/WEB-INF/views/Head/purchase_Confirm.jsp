@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/inc/top.jspf" %>
+<%@ include file="/inc/franTop.jspf" %>
 <style>
 	.container{ 
 		max-width: 1400px;
-		background-color:rgb(245, 240, 233);
+		background-color:rgb(242, 242, 242);
+		box-shadow: 0px 1px 2px 1px lightslategrey;
 	}
 	.purchase_ok{
 		width: 100%;
@@ -103,7 +104,7 @@ $(()=>{
 	$("#headerText").animate({
 	       top: "-160px", opacity:1
 	       }, 1200,);
-	
+
 });
 
 </script>
@@ -116,7 +117,7 @@ $(()=>{
 	<div class="search">
 		<input type='text' id='myinput' placeholder='검색하기' class='form-control'/>
 		<div class="purchase_ok">
-			 <table class="table table-hover table-active">
+			 <table class="table table-hover">
 	      	<thead>
 	            <tr class="table-active">
 	            	<td>발주번호</td>
@@ -132,72 +133,26 @@ $(()=>{
 	            </tr>
 	            </thead>
 	            <tbody id='searchList'>	
-		             <tr>
-		             	<td>1</td>
-		             	<td>서강대점</td>
-		               	<td>2-1</td>
-		                <td>블랙원두</td>
-		                <td>10000원</td>
-		                <td>5개</td>
-		                <td>50000</td>
-	               	    <td>2021-09-19</td>
-	               	    <td>대기</td>
-	               	    <td><input type="submit" class='confirmBtn' value="확인"/></td>
+	            	<c:forEach var="ProductVO" items="${purchaseListAll}">
+		             <tr>        
+		             	<td>${ProductVO.pc_num}</td>
+		             	<td>${ProductVO.fc_name}</td>
+		               	<td>${ProductVO.hq_num}</td>
+		                <td>${ProductVO.hq_name}</td>
+		                <td>${ProductVO.ware_price}</td>
+		                <td>${ProductVO.pc_cnt}</td>
+		                <td>${ProductVO.ware_price*ProductVO.pc_cnt}</td>
+	               	    <td>${ProductVO.pc_date}</td>
+	               	    <td><c:if test="${ProductVO.order_status == 1}">대기</c:if>
+	               	    	<c:if test="${ProductVO.order_status == 2}">완료</c:if>
+	               	    </td>
+	               	    <td><form method="post" id="form" action="/myapp/purchaseConfirm"><input type="submit" class='confirmBtn' value="확인"/><input type="hidden" name="pc_num" value="${ProductVO.pc_num }"></form></td>  					
 		            </tr>
-		            <tr>
-		             	<td>2</td>
-		             	<td>강남점</td>
-		               	<td>2-2</td>
-		                <td>블랙원두</td>
-		                <td>10000원</td>
-		                <td>5개</td>
-		                <td>50000</td>
-	               	    <td>2021-09-19</td>
-	               	 	<td>완료</td>
-	               	 	<td><input type="submit" class='confirmBtn' value="확인"/></td>
-		            </tr>
-		            <tr>
-		             	<td>3</td>
-		             	<td>종로점</td>
-		               	<td>2-3</td>
-		                <td>블랙원두</td>
-		                <td>10000원</td>
-		                <td>5개</td>
-		                <td>50000</td>
-	               	    <td>2021-09-19</td>
-	               	    <td>완료</td>
-	               	    <td><input type="submit" class='confirmBtn' value="확인"/></td>
-		            </tr>
-		            <tr>
-		             	<td>4</td>
-		             	<td>신촌점</td>
-		               	<td>2-4</td>
-		                <td>블랙원두</td>
-		                <td>10000원</td>
-		                <td>5개</td>
-		                <td>50000</td>
-	               	    <td>2021-09-19</td>
-	               	    <td>대기</td>
-	               	    <td><input type="submit" class='confirmBtn' value="확인"/></td>
-		            </tr>
-		            <tr>
-		             	<td>5</td>
-		             	<td>명동점</td>
-		               	<td>2-5</td>
-		                <td>블랙원두</td>
-		                <td>10000원</td>
-		                <td>5개</td>
-		                <td>50000</td>
-	               	    <td>2021-09-19</td>
-	               	    <td>대기</td>
-	               	    <td><input type="submit" class='confirmBtn' value="확인"/></td>
-		            </tr>
+		            </c:forEach>
 	         </tbody>
 	      </table>
 		</div>
 	</div>
-	<div class="memo"> 발주시 가맹점에서 쓴 메모 확인란
-			<textarea class="form-control" id="memo">글 내용을 입력하는 곳</textarea>
-	</div>
+	
 </div>
 <%@ include file="/inc/bottom.jspf" %>

@@ -40,6 +40,8 @@ public interface BoardDAO {
          " #{item} " , 
          " </foreach>" ,
          " </script>" })
+   
+   
    public int boardDelArray(int[] noDelArray); 
    
    //컬렉션을 이용한 여러개의 레코드 한번에 삭제하기

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leaf.myapp.dao.EmployeeDAO">
+	<select id="checkJoinId" resultType="com.leaf.myapp.vo.EmployeeVO">
+		select nvl(emp.userid,0) nullid ,reg.tel,reg.email,reg.username, reg.userid userid from registers reg
+		left join employee2 emp
+		on reg.userid = emp.userid
+		where reg.userid= #{param1}		
+	</select>
+<!--  	<select id="searchEmployeeList" resultType="com.leaf.myapp.vo.EmployeeVO" parameterType="java.util.HashMap">
+ 		select * from (
+			select ROW_NUMBER() OVER(ORDER by emp.emp_num desc) as
+			row_num			 
+			,emp.emp_num, regi.username, dept.dept_name, emp.emp_posi, regi.tel, regi.email, emp.emp_regdate, emp.emp_status
+			from registers regi join employee2 emp 
+			on regi.userid = emp.userid	
+			join department2 dept
+	    	on emp.dept_num = dept.dept_num
+			where emp.emp_num like '%'||#{emp_num}||'%'
+			order by emp.emp_num desc)
+	</select>	 -->
+ 	<insert id="employeeRegiInsert" parameterType="com.leaf.myapp.vo.EmployeeVO">
+		insert into employee2(emp_num,dept_num,emp_posi,emp_regdate,userid,emp_status)
+		values(empSq.nextval,#{dept_num},#{emp_posi},#{emp_regdate},#{userid},'Y')
+	</insert> 
+</mapper>

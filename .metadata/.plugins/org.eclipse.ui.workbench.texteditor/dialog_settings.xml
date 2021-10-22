@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="herapp"/>
+		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="spring-tx"/>
 			<item value="herapp"/>
 			<item value="xml"/>
 			<item value="menu"/>
@@ -22,7 +23,6 @@
 			<item value="z"/>
 			<item value="mou"/>
 			<item value="제출"/>
-			<item value="paginh"/>
 		</list>
 		<list key="replacehistory">
 		</list>

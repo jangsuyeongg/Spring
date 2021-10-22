@@ -6,7 +6,7 @@
 <aop-project name="WebSpring02_jdbcTemplate"/>
 <aop-project name="WebSpring04_mybatis"/>
 <aop-project name="suyeong"/>
-<aop-project name="FinalLeaf"/>
+<aop-project name="leaf(10-15)"/>
 <aop-project name="WebSpringOracleMybatisNoXml"/>
 <aop-project name="WebSpringOracleMybatisXml"/>
 <aop-project name="leaf"/>

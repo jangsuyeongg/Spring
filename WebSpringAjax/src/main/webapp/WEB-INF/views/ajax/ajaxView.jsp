@@ -27,7 +27,8 @@ $(()=>{
          data:params,
          success:function(r){
             var rr = $(r);
-            
+            console.log(r);
+            console.log(rr);
             rr.each(function(idx,vo){
                $("#view").append("<hr>"+idx+"-->"+vo.num+":"+vo.userid+":"+vo.nick);
             });
@@ -68,9 +69,7 @@ $(()=>{
            var jsonParsing = JSON.parse(result); //json으로 만들어진 문자열을 넣어줌
            console.log(jsonParsing);
            $("#view").append("no="+jsonParsing.no+", username="+ jsonParsing.username);
-           $("#view").append("tel"+jsonParsing.tel+", addr="+ jsonParsing.addr);
-           
-           
+           $("#view").append("tel"+jsonParsing.tel+", addr="+ jsonParsing.addr); 
         }
      }) ;
    });

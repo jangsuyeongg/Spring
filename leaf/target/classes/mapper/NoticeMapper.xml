@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.leaf.myapp.dao.NoticeDAO">
+  	<select id="noticeAllSelect" resultType="com.leaf.myapp.vo.NoticeVO">
+  		select no, title, to_char(writedate, 'YY-MM-DD') writedate, hit
+        from notice order by no desc
+  	</select>
+  	  <select  id="noticeView" resultType="com.leaf.myapp.vo.NoticeVO">
+        select no, title, content, to_char(writedate, 'YY-MM-DD') writedate
+        from notice where no=#{param1}
+     </select>
+     <insert id="noticeWrite" parameterType="com.leaf.myapp.vo.NoticeVO">
+     	insert into notice(no, title, userid, content) 
+     	values(noticeSq.nextval, #{title}, 'goguma', #{content})
+     </insert>
+     <update id="noticeEdit" parameterType="com.leaf.myapp.vo.NoticeVO">
+     	update notice set title=#{title}, content=#{content}
+     	where no=#{no} and userid='goguma'
+     </update>
+     <delete id="noticeDel" >
+     	delete from notice where no=#{param1} and userid='goguma'
+     </delete>
+  </mapper>
