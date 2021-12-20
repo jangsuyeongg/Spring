@@ -2,13 +2,13 @@
 <aop-reference-model>
 <aop-project name="WebSpring03_fileupload"/>
 <aop-project name="WebSpringAjax"/>
+<aop-project name="WebSpring04_mybatis"/>
+<aop-project name="EmpManagement"/>
+<aop-project name="WebSpringOracleMybatisXml"/>
+<aop-project name="WebSpring01"/>
 <aop-project name="SEOUL"/>
 <aop-project name="WebSpring02_jdbcTemplate"/>
-<aop-project name="WebSpring04_mybatis"/>
 <aop-project name="suyeong"/>
-<aop-project name="leaf(10-15)"/>
 <aop-project name="WebSpringOracleMybatisNoXml"/>
-<aop-project name="WebSpringOracleMybatisXml"/>
 <aop-project name="leaf"/>
-<aop-project name="WebSpring01"/>
 </aop-reference-model>
